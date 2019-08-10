@@ -1,6 +1,7 @@
 // this is a one line comment
 
 // include a header file
+// this header in particular includes the printf function that we often use
 #include <stdio.h>
 
 // define an alias
@@ -57,6 +58,7 @@ int main(){
 
 
 // the helper function
+// this helper functions adds together the two input argumetns and return their sum. 
 int helper_function(int a, int b){
 	return(a+b);
 }
