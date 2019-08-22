@@ -30,6 +30,7 @@ int main(){
      }
     
     printf("\n");
+    printf("\n");
 
 	// use our helper function to add the two variables
     int j = 4;
@@ -40,6 +41,7 @@ int main(){
 	printf("%d + %d = %d \n", i, j, sum);
 
     printf("\n");
+    printf("\n");
     
     // octal notaion - base 8 numbers
     // in base 8, the number 40 is expressed as 50
@@ -48,12 +50,14 @@ int main(){
     printf("The number \'%o\' in base 8 is equal to %d in base 10\n", octal, octal);
     
     printf("\n");
+    printf("\n");
     
     // floating point values
     float flt_ex = 3.87;
     printf("This is me printing a float: \'%f\'\n", flt_ex);
     printf("Printing only the first two decimal values: %.2f\n", flt_ex);
     
+    printf("\n");
     printf("\n");
     
     // boolean and some if statements
@@ -70,6 +74,7 @@ int main(){
         printf("Neither bool is true\n");
     }
     
+    printf("\n");
     printf("\n");
     
     // integer and float math
@@ -92,27 +97,53 @@ int main(){
     printf("%d / 100.0 = %f\n", i1, f2);
     
     printf("\n");
+    printf("\n");
     
 	// a pointer
+    printf("pointers...\n");
 	int* ptr;
+    i = 1;
+    j = 2;
 
 	// let ptr point towards the location holding i
 	ptr = &i;
 	// print the dereferenced ptr
+    printf("i=1;\nj=2;\nptr = &i;\n");
 	printf("The value at the dereferenced ptr: %d \n", *ptr);
 
 	// let ptr point towards the location holding j
 	ptr = &j;
 	// print the dereferenced ptr
+    printf("ptr = &j;\n");
 	printf("The value at the dereferenced ptr: %d \n", *ptr);
 
 	// lets store something else to where ptr points
 	*ptr = 30;
+    printf("*ptr = 30;\n");
 	printf("The value at the dereferenced ptr: %d \n", *ptr);
 
-	// whats store in j now tho?
+	// whats stored in j now tho?
+    printf("whats stored in i now tho?\n");
+    printf("i = %d \n", i);
+    printf("whats stored in j now tho?\n");
 	printf("j = %d \n", j);
 
+    printf("\n");
+    printf("\n");
+    
+    // looping and aligning output
+    printf("looping and aligning output...\n");
+    printf("TRIANGULAR NUMBERS\n");
+    printf("  n            sum from 1 to n\n");
+    printf("----           ---------------\n");
+    int triangularNumber;
+    triangularNumber = 0;
+    
+    for (int n = 1; n < 11; n++){
+        triangularNumber += n;
+        printf("%2d                   %d\n", n, triangularNumber);
+    }
+    
 	return(SUCCESS);
 }
 
