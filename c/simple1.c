@@ -22,6 +22,36 @@ int main(){
      // declare an integer
      int i = 8;
     
+    // condition if statement
+    // check equality -> ==
+    // check less/ greater than -> < or >
+    // check less/ greater than or equal -> <= or >=
+    // check inequality -> !=
+    if (i == 8) {
+        printf("equality conditional... i = 8\n");
+    }
+    
+    // if/else
+    if (i < 8) {
+        printf("i < 8\n");
+    }
+    else {
+        printf("i >= 8\n");
+    }
+    
+    // if else then
+    if (i<8) {
+        printf("i < 8\n");
+    }
+    else if (i>8) {
+        printf("i > 8\n");
+    }
+    else {
+        printf("i = 8\n");
+    }
+    
+    printf("\n\n");
+    
     // simple for loop addition
     printf("using a loop....\n");
     printf("i + j -- looping over j\n");
