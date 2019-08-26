@@ -20,7 +20,9 @@ int helper_function(int a, int b);
 int main(){
 
      // declare an integer
-     int i = 8;
+    int i,j;
+    
+    i = 8;
     
     // condition if statement
     // check equality -> ==
@@ -50,6 +52,56 @@ int main(){
         printf("i = 8\n");
     }
     
+    // more complex conditionals
+    j = 10;
+    // AND
+    if ( i>5 && j < 15) {
+        printf("i>5 && j < 15 \n");
+    }
+    // OR
+    if ( i>5 || j > 15) {
+        printf("i>5 || j > 15 \n");
+    }
+    
+    printf("\n\n");
+    
+    // switch statements
+    printf("switch statements...\n");
+    switch (i) {
+        case 1:
+            printf("1\n");
+            break;
+        case 10:
+            printf("10\n");
+            break;
+        default:
+            printf("i != 1 or 10 \n");
+    }
+    
+    i = 10;
+    
+    // above is same as
+    if (i == 1) {
+        printf("1\n");
+    }
+    else if (i == 10) {
+        printf("10\n");
+    }
+    else {
+        printf("i != 1 or 10 \n");
+    }
+    
+    printf("\n\n");
+    
+    // conditional operator
+    // condition ? expression_1 : expression_2
+    // if {condition} is TRUE then expression_1 is evaluated
+    // if {condition} is FALSE then expression_2 is evaluated
+    printf("conditional operator\n");
+    printf("%d\n", i);
+    j = (i < 0) ? -1 : 1;
+    printf("%d \n", j);
+    
     printf("\n\n");
     
     // simple for loop addition
@@ -63,7 +115,7 @@ int main(){
     printf("\n");
 
 	// use our helper function to add the two variables
-    int j = 4;
+    j = 4;
     int sum;
     sum = helper_function(i,j);
 	// print the result
