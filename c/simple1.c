@@ -226,6 +226,15 @@ int main(){
         printf("%2d                   %d\n", n, triangularNumber);
     }
     
+    printf("\n");
+    printf("\n");
+    
+    // constants
+    const float pi = 3.14159265358970;
+    // pi is a constant and cannot be changed
+    // pi = pi/2 will produce an error
+    printf("the 'const' qualifier means a variable won't be changed \n");
+    
 	return(SUCCESS);
 }
 
