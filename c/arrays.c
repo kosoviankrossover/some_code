@@ -55,15 +55,15 @@ int main (void) {
         {0,0,1,0},
         {0,0,0,1}
     };
-    printf("row 2, column three entr of matrixy = %d", matrix[1][2]);
+    printf("row 2, column three entry of matrixs = %d", matrix[1][2]);
     
     printf("\n\n");
     
     // character array
     printf("character array... \n");
     char word[] = {'h','e','l','l','o'};
-    for (int i = 0; i<5; i++) {
-        printf("%c", word[i]);
+    for (int i = 0; i<6; i++) {
+        printf("'%c'", word[i]);
     }
     
     printf("\n\n");
@@ -86,6 +86,16 @@ int main (void) {
     if (len_1 == len_2) {
         printf("lengths are the same \n");
         // string comparison
+        /*
+         strncmp:
+         - int strncmp(const char *str1, const char *str2, size_t n)
+         compares at most the first n bytes of str1 and str2.
+         - returns 0, if both the strings str1 and str2 are equal
+         - returns >0, if the ASCII value of first unmatched character of str1
+                        is greater than str2
+         - returns <0, if the ASCII value of first unmatched character of str1
+                        is less than str2
+         */
         if (strncmp(str_1, str_2, len_1) != 0) {
             printf("but the strings are different\n");
         }
@@ -102,7 +112,7 @@ int main (void) {
     
     // stack vs heap
     int a_1[3] = {1,2,3}; // stored in stack
-    int* a_2 = (int*) malloc(3*sizeof(int));
+    int* a_2 = (int*) malloc(3*sizeof(int)); // stored in heap
     for (i=0; i<3; i++) {
         a_2[i] = i+4;
     }
@@ -120,7 +130,9 @@ int main (void) {
     return(0);
 }
 
+// print the array
 void arr_print (int arr[], int n) {
+    // loop through array
     for (int i=0; i<n; i++) {
         printf("%d...", arr[i]);
     }
