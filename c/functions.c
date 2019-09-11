@@ -56,17 +56,33 @@ float float_return_func (char* word) {
  - returns an array/ matrix of dim m-by-n
  credit: https://en.wikibooks.org/wiki/C_Programming/stdlib.h/malloc
  */
-int** creare_arr (int m, int n)
+int** create_matrix (int m, int n)
 {
+    // init
     int **p, i;
+    
+    // allocate row memmory
     p = (int **)malloc(m*sizeof(int*));/* this will store base order of all the row in p */
+    
+    // loop over rows
     for(i = 0; i < m; i++)
+        // allocate column memmory
         p[i] = (int *)malloc(n*sizeof(int));/* this will create m row of n elements */
-    return p;
+    
+    return (p);
 }
 
-void free_arr (int** ptr, int m) {
+/*
+ function:
+ - takes input matrix with memmory allocated by malloc
+ - frees memmeory allocated for matrix
+ - retruns nothing
+ */
+void free_matrix (int** ptr, int m) {
+    // init value
     int i;
+    
+    // loop over array
     for (i=0; i<m; i++) {
         free(ptr[i]);
     }
@@ -74,28 +90,117 @@ void free_arr (int** ptr, int m) {
     return;
 }
 
-void print_arr (int** arr, int m, int n) {
+/*
+ function:
+ - take matrix input along with values for the row and column dims
+ - prints contents of matrix
+ - returns nothing
+ */
+void print_matrix (int** arr, int m, int n) {
+    // init values
     int i;
     int j;
     
+    // loop over rows and columns
     for (i=0; i<m; i++) {
         for (j=0; j<n; j++) {
-            printf("%d    ", arr[i][j]);
+            printf("%5d    ", arr[i][j]);
         }
         printf("\n");
     }
     return;
 }
 
-void fill_arr (int** arr, int m, int n) {
+/*
+ function:
+ - take array input along with its length
+ - prints contents of array
+ - returns nothing
+ */
+void print_arr (int* arr, int len) {
+    // init values
+    int i;
+    
+    // loop over array
+    for (i=0; i<len; i++) {
+        printf("%d...", arr[i]);
+    }
+    printf("\n");
+}
+
+/*
+ function:
+ - take matrix input along with values for the row and column dims
+ - fills matrix with zeros
+ - returns nothing
+ */
+void fill_matrix_rand (int** arr, int m, int n, int lower, int upper) {
+    // init values
     int i;
     int j;
+    int temp;
     
+    // loop over rows and columns
     for (i=0; i<m; i++) {
         for (j=0; j<n; j++) {
-            arr[i][j] = 0;
+            // get rand value from lower to upper, inclusive
+            temp = (rand() % (upper-lower+1)) + lower;
+            // store value
+            arr[i][j] = temp;
         }
     }
+    return;
+}
+
+/*
+function:
+ - take array as input along with length and multiplicative factor
+ - multiplies array elements by multiplicative factor
+ - returns nothing
+ */
+void mult_arr_by (int* arr, int len, int mult) {
+    // init values
+    int i;
+    
+    // loop over array
+    for (i=0; i<len; i++) {
+        arr[i] *= mult;
+    }
+    return;
+}
+
+/*
+ function:
+ - take array as input along with length
+ - returns minimum element
+ */
+int minimum (int* arr, int len) {
+    // init values
+    int i;
+    int min;
+
+    // set min to first value
+    min = arr[0];
+
+    // loop to update min
+    for (i=1; i<len; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return(min);
+}
+
+// moving through an array with pointer notation
+void pointers_and_arrays (int* arr) {
+
+    printf("arr: %d", *arr);
+    //move forward
+    arr++;
+    printf("...-> arr++ ->");
+    printf("...-> %d ->", *arr);
+    printf("...-> arr[1] = %d \n", arr[1]);
+    
     return;
 }
 
@@ -131,10 +236,28 @@ int main (void) {
     int** arr;
     int m = 3;
     int n = 3;
-    arr = creare_arr(m,n);
-    fill_arr(arr, m, n);
-    print_arr(arr, m, n);
-    free_arr(arr, m);
+    printf("creating matrix....\n");
+    arr = create_matrix(m,n);
+    printf("filling matrix....\n");
+    fill_matrix_rand(arr, m, n, 1, 555);
+    printf("printing matrix....\n");
+    print_matrix(arr, m, n);
+    printf("freeing matrix....\n");
+    free_matrix(arr, m);
+    
+    // minimum of array of values
+    printf("\n");
+    printf("array... length of array and minimum \n");
+    int min;
+    int arr_2[] = {1,2,3,0,4,5};
+    len = sizeof(arr_2)/sizeof(int);
+    print_arr(arr_2, len);
+    printf("multiplying array by 3...\n");
+    mult_arr_by(arr_2, len, 3);
+    print_arr(arr_2, len);
+    pointers_and_arrays(arr_2);
+    min = minimum(arr_2, len);
+    printf("array has length %d and minimum value of %d \n", len, min);
     
     return(0);
 }
