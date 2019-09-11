@@ -45,20 +45,35 @@ int get_intput (char string[], int buff_size) {
     }
 }
 
+
+
+// main function
 int main (void) {
     
+    //buffer size for fgets
     int buff_size = 6;
+    /*
+     fgets stores values intil buff_size-1 characters have been read
+     or a newline character has been read.
+     fgets appends a null character '0' at the end of the given string
+     */
+    // declare some strings
+    /*
+     declare two strings so that we can show how to deal with inputs
+     of various lengths: 1) the same size as buff_size, 2) less than
+     the buff_size, and 3) more than the buff_size
+    */
     char string[buff_size];
     char string_[buff_size];
     
+    // grab input
     printf("Input[<6]: ");
     if ( get_intput(string, buff_size) == ERROR ) return(ERROR);
-
     printf("You're stored input was '%s'\n", string);
     
+    // grab some more input
     printf("Input[<6]: ");
     if ( get_intput(string_, buff_size) == ERROR ) return(ERROR);
-    
     printf("You're stored input was '%s'\n", string_);
     
     return(SUCCESS);
